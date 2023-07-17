@@ -1,0 +1,104 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Requirements & Restrictions # Android 8 (API level 26) or later Dependencies # Add the following dependencies to your app&rsquo;s build.gradle file:
+implementation 'tech.edge:pcsdk:1.0.7' If you want to provide custom colors or fonts, you will need to add the following dependencies to your app&rsquo;s build.gradle file:
+implementation 'androidx.compose.ui:ui' implementation 'androidx.compose.ui:ui-graphics' In addition, you will need to add the following maven repository to your settings.gradle file:
+dependencyResolutionManagement { repositories { // ."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="Android"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://edge-connect-sdk.github.io/docs/implementation/android/"><title>Android | Edge SDK</title><link rel=manifest href=/manifest.json><link rel=icon href=/favicon.png type=image/x-icon><link rel=stylesheet href=/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz+OQteg=" crossorigin=anonymous><script defer src=/flexsearch.min.js></script>
+<script defer src=/en.search.min.0efc9fbc8f1f7a7c10346f3cc31ca7061b679b1dd00c5cb46139fb476776794f.js integrity="sha256-DvyfvI8fenwQNG88wxynBhtnmx3QDFy0YTn7R2d2eU8=" crossorigin=anonymous></script>
+<link rel=alternate type=application/rss+xml href=https://edge-connect-sdk.github.io/docs/implementation/android/index.xml title="Edge SDK"></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>Edge SDK</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/docs/implementation/>Implementation</a><ul><li><a href=/docs/implementation/android/ class=active>Android</a><ul></ul></li><li><a href=/docs/implementation/ios/>iOS</a><ul></ul></li></ul></li><li><a href=/docs/styleguide/>Styleguide</a><ul></ul></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Android</strong>
+<label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#requirements--restrictions>Requirements & Restrictions</a></li><li><a href=#dependencies>Dependencies</a></li><li><a href=#usage>Usage</a></li><li><a href=#sample-app>Sample app</a></li></ul></nav></aside></header><article class=markdown><h2 id=requirements--restrictions>Requirements & Restrictions
+<a class=anchor href=#requirements--restrictions>#</a></h2><ul><li>Android 8 (API level 26) or later</li></ul><h2 id=dependencies>Dependencies
+<a class=anchor href=#dependencies>#</a></h2><p>Add the following dependencies to your app&rsquo;s <code>build.gradle</code> file:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-groovy data-lang=groovy><span style=display:flex><span>implementation <span style=color:#e6db74>&#39;tech.edge:pcsdk:1.0.7&#39;</span>
+</span></span></code></pre></div><p>If you want to provide custom colors or fonts, you will need to add the following dependencies to your
+app&rsquo;s <code>build.gradle</code> file:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-groovy data-lang=groovy><span style=display:flex><span>implementation <span style=color:#e6db74>&#39;androidx.compose.ui:ui&#39;</span>
+</span></span><span style=display:flex><span>implementation <span style=color:#e6db74>&#39;androidx.compose.ui:ui-graphics&#39;</span>
+</span></span></code></pre></div><p>In addition, you will need to add the following maven repository to your settings.gradle file:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-groovy data-lang=groovy><span style=display:flex><span>dependencyResolutionManagement <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    repositories <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// ...
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        maven <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            url <span style=color:#e6db74>&#39;https://maven.pkg.github.com/Edge-Connect-SDK/edge-sdk-android&#39;</span>
+</span></span><span style=display:flex><span>            credentials <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>                username<span style=color:#f92672>&lt;</span>github_username<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>                password<span style=color:#f92672>&lt;</span>github_token<span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>            <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span></code></pre></div><p>Where <code>&lt;github_username></code> is your GitHub username and <code>&lt;github_token></code> is a personal access token
+with the <code>read:packages</code> scope. For more information on how to create a personal access token,
+see <a href=https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token>Creating a personal access token</a>.</p><h2 id=usage>Usage
+<a class=anchor href=#usage>#</a></h2><p>Before you can use the SDK, you must initialize it in your <code>Application#onCreate()</code> method.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#75715e>// Define an implementation of the Analytics interface if you want to track events
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>val</span> analytics = <span style=color:#66d9ef>object</span> <span style=color:#960050;background-color:#1e0010>: </span><span style=color:#a6e22e>Analytics</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>trackEvent</span>(event: String, properties: Map&lt;String, Any&gt;) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Implement
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>trackPage</span>(page: String, properties: Map&lt;String, Any&gt;) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Implement
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Define an implementation of the ErrorLogger interface if you want to log errors
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>val</span> errorLogger = <span style=color:#66d9ef>object</span> <span style=color:#960050;background-color:#1e0010>: </span><span style=color:#a6e22e>ErrorLogger</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>override</span> <span style=color:#66d9ef>fun</span> <span style=color:#a6e22e>logError</span>(message: String, error: Throwable?) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// Implement
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Define custom colors if you want to override the default color scheme
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>val</span> customColorScheme = Colors(
+</span></span><span style=display:flex><span>    icon = Color(<span style=color:#ae81ff>0xFFFFFFFF</span>),
+</span></span><span style=display:flex><span>    control = Color(<span style=color:#ae81ff>0xFF464646</span>),
+</span></span><span style=display:flex><span>    buttonBorder = Color(<span style=color:#ae81ff>0xFF5C8DA5</span>),
+</span></span><span style=display:flex><span>    buttonBackground = Color(<span style=color:#ae81ff>0xFF000000</span>),
+</span></span><span style=display:flex><span>    surface = Color(<span style=color:#ae81ff>0xFF242424</span>),
+</span></span><span style=display:flex><span>    surface200 = Color(<span style=color:#ae81ff>0xFF3F3F3F</span>),
+</span></span><span style=display:flex><span>    surface300 = Color(<span style=color:#ae81ff>0xFF585858</span>),
+</span></span><span style=display:flex><span>    success = Color(<span style=color:#ae81ff>0xFF348025</span>),
+</span></span><span style=display:flex><span>    success200 = Color(<span style=color:#ae81ff>0xFF42AC2C</span>),
+</span></span><span style=display:flex><span>    error = Color(<span style=color:#ae81ff>0xFF410003</span>),
+</span></span><span style=display:flex><span>    lights = Color(<span style=color:#ae81ff>0xFF2C2600</span>),
+</span></span><span style=display:flex><span>    lights200 = Color(<span style=color:#ae81ff>0xFF7C6400</span>),
+</span></span><span style=display:flex><span>    temperature = Color(<span style=color:#ae81ff>0xFF474444</span>),
+</span></span><span style=display:flex><span>    temperatureGradient1 = Color(<span style=color:#ae81ff>0xFF00293D</span>),
+</span></span><span style=display:flex><span>    temperatureGradient2 = Color(<span style=color:#ae81ff>0xFF000000</span>),
+</span></span><span style=display:flex><span>    temperatureGradient3 = Color(<span style=color:#ae81ff>0xFF3A0800</span>),
+</span></span><span style=display:flex><span>    temperatureGradientEco1 = Color(<span style=color:#ae81ff>0xFF062700</span>),
+</span></span><span style=display:flex><span>    temperatureGradientEco2 = Color(<span style=color:#ae81ff>0xFF136B00</span>),
+</span></span><span style=display:flex><span>    temperatureGradientEco3 = Color(<span style=color:#ae81ff>0xFF052000</span>),
+</span></span><span style=display:flex><span>    blinds = Color(<span style=color:#ae81ff>0xFF002138</span>),
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>val</span> textColor = Color(<span style=color:#ae81ff>0xFFFFFFFF</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Define custom typography if you want to override the default typography
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>val</span> customTypography = Fonts(
+</span></span><span style=display:flex><span>    title1 = TextStyle(fontSize = <span style=color:#ae81ff>20.</span>sp, color = textColor),
+</span></span><span style=display:flex><span>    title2 = TextStyle(fontSize = <span style=color:#ae81ff>20.</span>sp, color = textColor),
+</span></span><span style=display:flex><span>    controlTitle = TextStyle(fontSize = <span style=color:#ae81ff>16.</span>sp, color = textColor),
+</span></span><span style=display:flex><span>    body = TextStyle(fontSize = <span style=color:#ae81ff>14.</span>sp, color = textColor),
+</span></span><span style=display:flex><span>    button = TextStyle(fontSize = <span style=color:#ae81ff>12.</span>sp, color = textColor),
+</span></span><span style=display:flex><span>    statusValue = TextStyle(fontSize = <span style=color:#ae81ff>12.</span>sp, color = textColor),
+</span></span><span style=display:flex><span>    label = TextStyle(fontSize = <span style=color:#ae81ff>12.</span>sp, color = textColor),
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>EdgeSdk</span>.initialize(
+</span></span><span style=display:flex><span>    environment = <span style=color:#a6e22e>Environment</span>.DEVELOPMENT,
+</span></span><span style=display:flex><span>    analytics = analytics, <span style=color:#75715e>// Optional
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    errorLogger = errorLogger, <span style=color:#75715e>// Optional
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    colors = customColorScheme, <span style=color:#75715e>// Optional
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    typography = customTypography, <span style=color:#75715e>// Optional
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>)
+</span></span></code></pre></div><p>Once the SDK is initialized, you can start an activity to display the EDGE Connect UI.
+Only one EDGE Connect activity can be started at a time.
+If you want to start a new activity, you must first close the existing activity.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-kotlin data-lang=kotlin><span style=display:flex><span><span style=color:#a6e22e>EdgeSdk</span>.startActivity(
+</span></span><span style=display:flex><span>    context = context,
+</span></span><span style=display:flex><span>    flags = <span style=color:#a6e22e>Intent</span>.FLAG_ACTIVITY_CLEAR_TASK or <span style=color:#a6e22e>Intent</span>.FLAG_ACTIVITY_NEW_TASK <span style=color:#75715e>// Optional
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>)
+</span></span></code></pre></div><h2 id=sample-app>Sample app
+<a class=anchor href=#sample-app>#</a></h2><p>This <a href=https://github.com/Edge-Connect-SDK/edge-sdk-android/tree/develop>repository</a> contains a sample app that demonstrates how to use the SDK. To build the sample app,
+you need to add maven credentials to your <code>local.properties</code> file:</p><pre tabindex=0><code># Edge SDK Maver repository credentials
+maven_username=&lt;your_github_username&gt;
+maven_password=&lt;your_github_token&gt;
+</code></pre><p>You can generate the token by following the instructions
+<a href=https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages>here</a>.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#requirements--restrictions>Requirements & Restrictions</a></li><li><a href=#dependencies>Dependencies</a></li><li><a href=#usage>Usage</a></li><li><a href=#sample-app>Sample app</a></li></ul></nav></div></aside></main></body></html>
